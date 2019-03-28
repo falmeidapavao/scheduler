@@ -1,1 +1,1 @@
-An event scehduler
+An event scheduler
