@@ -1,0 +1,20 @@
+calendar { }
+
+calendar .week .day {
+    height: 40px !important;
+    border-style: solid;
+    border-width: 0px 0px 1px 1px;
+    border-color: silver;
+}
+
+calendar .week .day.from-first-week {
+    border-top-width: 1px !important;
+}
+
+calendar .week .day.last {
+    border-right-width: 1px !important;
+} 
+
+calendar .week .day.selected {
+    background-color: #bce8f1;
+}

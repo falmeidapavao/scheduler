@@ -1,4 +1,8 @@
 <div ng-controller="HomeCtrl as ctrl">
     <h1>Home</h1>
-    <calendar calendar="[]"></calendar>
+    <div class="row">
+        <div class="col-sm">
+            <calendar events="ctrl.events"></calendar>
+        </div>
+    </div>
 </div>
