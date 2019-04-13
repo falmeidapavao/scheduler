@@ -1,6 +1,6 @@
 <h2>Calendar</h2>
 <h5>{{$ctrl.year}} - {{$ctrl.month + 1}}</h3>
-<div class="week" ng-repeat="week in $ctrl.calendar">
+<div class="week" ng-repeat="week in $ctrl.calendar.dates">
   <div class="row">
     <div class="day col-md-1 col-sm-1 col-xs-1" ng-repeat="day in week" ng-click="$ctrl.select(day)" ng-class="{ selected: day.selected, last: $last, 'from-first-week': $parent.$first }">
       {{day.getDate()}}
