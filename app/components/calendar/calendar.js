@@ -23,25 +23,18 @@ function CalendarController(Calendar, EventDate) {
     eventDate.toggleSelect();
   };
 
+  // TODO: what about leap years?
   ctrl.nextMonth = () => {
-    if (ctrl.month == 11) {
-      ctrl.year++;
-      ctrl.month = 0;
-    }
-    else {
-      ctrl.month++;
-    }
+    let newDate = new Date(ctrl.year, ++ctrl.month);
+    ctrl.year = newDate.getFullYear();
+    ctrl.month = newDate.getMonth();
     ctrl.calendar.populate(ctrl.year, ctrl.month);
   };
 
   ctrl.previousMonth = () => {
-    if (ctrl.month == 0) {
-      ctrl.year--;
-      ctrl.month = 11;
-    }
-    else {
-      ctrl.month--;
-    }
+    let newDate = new Date(ctrl.year, --ctrl.month);
+    ctrl.year = newDate.getFullYear();
+    ctrl.month = newDate.getMonth();
     ctrl.calendar.populate(ctrl.year, ctrl.month);
   };
 }
