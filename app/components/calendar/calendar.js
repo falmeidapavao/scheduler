@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app').component('calendar', {
-  templateUrl: 'calendar/calendar.html',
+  templateUrl: 'components/calendar/calendar.html',
   bindings: {
     events: '=',
     year: '<',

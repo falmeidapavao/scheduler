@@ -4,7 +4,7 @@ angular.module('app.home', ['ngRoute'])
 
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/home', {
-      templateUrl: 'home/home.html',
+      templateUrl: 'pages/home/home.html',
       controller: 'HomeCtrl'
     });
   }])
@@ -21,7 +21,7 @@ angular.module('app.home', ['ngRoute'])
     // Get events.
     $http({
       method: 'GET',
-      url: 'mocks/events.json'
+      url: './mocks/events.json'
     }).then(function (response) {
       if(response.data) ctrl.events = response;
       else console.error(response);
