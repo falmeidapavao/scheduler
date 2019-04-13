@@ -10,27 +10,38 @@ angular.module('app').component('calendar', {
   controller: CalendarController
 });
 
-function CalendarController(Calendar) {
+function CalendarController(Calendar, EventDate) {
   var ctrl = this;
   ctrl.$onInit = () => {
     // Populate calendar with provided year and month.
     ctrl.calendar = new Calendar([]);
     ctrl.calendar.populate(ctrl.year, ctrl.month);
   };
-  
+
   // Selects a date.
-  ctrl.select = (date) => {
-    date.selected = !date.selected;
+  ctrl.select = (eventDate) => {
+    eventDate.toggleSelect();
   };
 
-  // Changes current month to next or previous
-  ctrl.changeMonth = (value) => {
-    let diff = value - ctrl.month;
-    let currentDate = new Date(ctrl.year, ctrl.month);
-    currentDate.setMonth(currentDate.getMonth() + diff);
-    ctrl.year = currentDate.getFullYear();
-    ctrl.month = currentDate.getMonth();
-    ctrl.calendar.clear();
+  ctrl.nextMonth = () => {
+    if (ctrl.month == 11) {
+      ctrl.year++;
+      ctrl.month = 0;
+    }
+    else {
+      ctrl.month++;
+    }
+    ctrl.calendar.populate(ctrl.year, ctrl.month);
+  };
+
+  ctrl.previousMonth = () => {
+    if (ctrl.month == 0) {
+      ctrl.year--;
+      ctrl.month = 11;
+    }
+    else {
+      ctrl.month--;
+    }
     ctrl.calendar.populate(ctrl.year, ctrl.month);
   };
 }

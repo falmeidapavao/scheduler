@@ -1,7 +1,7 @@
 // Creates a calendar model with specific prototype functions.
 'use strict';
 
-angular.module('app').factory('Calendar', function () {
+angular.module('app').factory('Calendar', function (EventDate) {
     // Constructor.
     function Calendar(dates) {
         this.dates = dates;
@@ -27,16 +27,20 @@ angular.module('app').factory('Calendar', function () {
         // Populate calendar.
         while (start < end) {
             let week = [];
-
             for (let i = 0; i < DAYS_PER_WEEK; i++) {
                 let clone = new Date(start);
-                week.push(clone);
+                let evtDate = new EventDate(clone, false);
+                week.push(evtDate);
                 start.setDate(start.getDate() + 1);
             }
             dates.push(week);
         }
         // Sets new dates to calendar;
         this.dates = dates;
+    };
+
+    Calendar.prototype.nextMonth = function() {
+
     };
 
     Calendar.prototype.clear = function() {

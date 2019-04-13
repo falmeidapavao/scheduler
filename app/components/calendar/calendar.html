@@ -3,15 +3,15 @@
 <div class="week" ng-repeat="week in $ctrl.calendar.dates">
   <div class="row">
     <div class="day col-md-1 col-sm-1 col-xs-1" ng-repeat="day in week" ng-click="$ctrl.select(day)" ng-class="{ selected: day.selected, last: $last, 'from-first-week': $parent.$first }">
-      {{day.getDate()}}
+      {{day.date.getDate()}}
     </div>
   </div>
 </div>
 <div class="row">
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="btn-group" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-secondary" ng-click="$ctrl.changeMonth($ctrl.month - 1)">Prev</button>
-      <button type="button" class="btn btn-secondary" ng-click="$ctrl.changeMonth($ctrl.month + 1)">Next</button>
+      <button type="button" class="btn btn-secondary" ng-click="$ctrl.nextMonth()">Prev</button>
+      <button type="button" class="btn btn-secondary" ng-click="$ctrl.previousMonth()">Next</button>
     </div>
   </div>
 </div>
