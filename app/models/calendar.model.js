@@ -39,10 +39,6 @@ angular.module('app').factory('Calendar', function (EventDate) {
         this.dates = dates;
     };
 
-    Calendar.prototype.nextMonth = function() {
-
-    };
-
     Calendar.prototype.clear = function() {
         this.dates = [];
     };

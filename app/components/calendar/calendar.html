@@ -1,17 +1,17 @@
 <h2>Calendar</h2>
 <h5>{{$ctrl.year}} - {{$ctrl.month + 1}}</h3>
-<div class="week" ng-repeat="week in $ctrl.calendar.dates">
+  <div class="week" ng-repeat="week in $ctrl.calendar.dates">
+    <div class="row">
+      <div class="day col-md-1 col-sm-1 col-xs-1" ng-repeat="day in week" ng-click="$ctrl.select(day)" ng-class="{ selected: day.selected, last: $last, 'from-first-week': $parent.$first }">
+        {{day.date.getDate()}}
+      </div>
+    </div>
+  </div>
   <div class="row">
-    <div class="day col-md-1 col-sm-1 col-xs-1" ng-repeat="day in week" ng-click="$ctrl.select(day)" ng-class="{ selected: day.selected, last: $last, 'from-first-week': $parent.$first }">
-      {{day.date.getDate()}}
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary" ng-click="$ctrl.previousMonth()">Prev</button>
+        <button type="button" class="btn btn-secondary" ng-click="$ctrl.nextMonth()">Next</button>
+      </div>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-12 col-sm-12 col-xs-12">
-    <div class="btn-group" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-secondary" ng-click="$ctrl.previousMonth()">Prev</button>
-      <button type="button" class="btn btn-secondary" ng-click="$ctrl.nextMonth()">Next</button>
-    </div>
-  </div>
-</div>
